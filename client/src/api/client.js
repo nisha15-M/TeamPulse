@@ -1,4 +1,4 @@
-const API_BASE_URL = '/api';
+const API_BASE_URL = 'https://teampulse-i62e.onrender.com/api';
 
 export const apiRequest = async (endpoint, options = {}) => {
   const token = localStorage.getItem('teampulse_token');
@@ -27,12 +27,25 @@ export const apiRequest = async (endpoint, options = {}) => {
 };
 
 export const api = {
-  get: (endpoint, options) => apiRequest(endpoint, { ...options, method: 'GET' }),
+  get: (endpoint, options) =>
+    apiRequest(endpoint, { ...options, method: 'GET' }),
+
   post: (endpoint, body, options) =>
-    apiRequest(endpoint, { ...options, method: 'POST', body: JSON.stringify(body) }),
+    apiRequest(endpoint, {
+      ...options,
+      method: 'POST',
+      body: JSON.stringify(body),
+    }),
+
   put: (endpoint, body, options) =>
-    apiRequest(endpoint, { ...options, method: 'PUT', body: JSON.stringify(body) }),
-  delete: (endpoint, options) => apiRequest(endpoint, { ...options, method: 'DELETE' }),
+    apiRequest(endpoint, {
+      ...options,
+      method: 'PUT',
+      body: JSON.stringify(body),
+    }),
+
+  delete: (endpoint, options) =>
+    apiRequest(endpoint, { ...options, method: 'DELETE' }),
 };
 
 export default api;
