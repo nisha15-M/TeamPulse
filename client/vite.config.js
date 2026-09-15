@@ -7,9 +7,12 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://teampulse-i62e.onrender.com',
+        target: 'http://localhost:5000',
         changeOrigin: true,
       },
     },
+  },
+  preview: {
+    allowedHosts: ['teampulse-frontend-r5kq.onrender.com'],
   },
 });
